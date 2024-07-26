@@ -8,6 +8,10 @@ function App() {
 
   useEffect(() => {
     const parseHashAndLogin = async () => {
+
+      console.log(window.location.search);
+      console.log(window.location.hash);
+
       // Get the hash and remove the leading '#'
       const hash = window.location.hash.substring(1);
 
