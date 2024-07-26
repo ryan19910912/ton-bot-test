@@ -41,7 +41,7 @@ function App() {
 
       callBeDataObject.telegramUserData.queryId = tgWebAppDataObject["query_id"];
       callBeDataObject.telegramUserData.id = tgWebAppDataObject["id"];
-      callBeDataObject.telegramUserData.authDate = tgWebAppDataObject["authDate"];
+      callBeDataObject.telegramUserData.authDate = tgWebAppDataObject["auth_date"];
       callBeDataObject.telegramUserData.hash = tgWebAppDataObject["hash"];
       callBeDataObject.telegramUserData.firstName = tgWebAppDataObject["first_name"];
 
