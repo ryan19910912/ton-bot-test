@@ -25,7 +25,7 @@ function App() {
 
       const searchTgWebAppDataParams = new URLSearchParams(tgWebAppData);
 
-      console.log(searchTgWebAppDataParams);
+      console.log(searchTgWebAppDataParams.toString());
 
       searchTgWebAppDataParams.forEach((value, key) => {
         try {
