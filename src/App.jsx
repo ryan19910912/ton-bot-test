@@ -48,7 +48,7 @@ function App() {
       callBeDataObject.telegramUserData.firstName = tgWebAppDataObject["first_name"];
 
       callBeDataObject.telegramUserData.lastName = tgWebAppDataObject["last_name"] == undefined ? null : tgWebAppDataObject["last_name"];
-      console.log("tgWebAppDataObject[username] = "+ tgWebAppDataObject["username"]);
+      console.log("tgWebAppDataObject[username] = "+ tgWebAppDataObject.username);
       callBeDataObject.telegramUserData.userName = tgWebAppDataObject["username"] == undefined ? null : tgWebAppDataObject["username"];
       callBeDataObject.telegramUserData.languageCode = tgWebAppDataObject["language_code"] == undefined ? null : tgWebAppDataObject["language_code"];
       callBeDataObject.telegramUserData.allowsWriteToPm = tgWebAppDataObject["allows_write_to_pm"] == undefined ? null : tgWebAppDataObject["allows_write_to_pm"];
