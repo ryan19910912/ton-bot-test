@@ -25,8 +25,6 @@ function App() {
 
       const searchTgWebAppDataParams = new URLSearchParams(tgWebAppData);
 
-      console.log(searchTgWebAppDataParams.toString());
-
       searchTgWebAppDataParams.forEach((value, key) => {
         try {
           // Attempt to parse JSON strings
@@ -44,21 +42,20 @@ function App() {
       callBeDataObject.serviceProvider = 4;
       callBeDataObject.telegramUserData = {};
 
-      callBeDataObject.telegramUserData.queryId = tgWebAppDataObject["query_id"];
-      callBeDataObject.telegramUserData.id = tgWebAppDataObject["id"];
-      callBeDataObject.telegramUserData.authDate = tgWebAppDataObject["auth_date"];
-      callBeDataObject.telegramUserData.hash = tgWebAppDataObject["hash"];
-      callBeDataObject.telegramUserData.firstName = tgWebAppDataObject["first_name"];
+      callBeDataObject.telegramUserData.queryId = tgWebAppDataObject.query_id;
+      callBeDataObject.telegramUserData.authDate = tgWebAppDataObject.auth_date;
+      callBeDataObject.telegramUserData.hash = tgWebAppDataObject.hash;
 
-      callBeDataObject.telegramUserData.lastName = tgWebAppDataObject["last_name"] == undefined ? null : tgWebAppDataObject["last_name"];
-      console.log("searchTgWebAppDataParams.get(username) = "+ searchTgWebAppDataParams.get("username"));
-      callBeDataObject.telegramUserData.userName = tgWebAppDataObject["username"] == undefined ? null : tgWebAppDataObject["username"];
-      callBeDataObject.telegramUserData.languageCode = tgWebAppDataObject["language_code"] == undefined ? null : tgWebAppDataObject["language_code"];
-      callBeDataObject.telegramUserData.allowsWriteToPm = tgWebAppDataObject["allows_write_to_pm"] == undefined ? null : tgWebAppDataObject["allows_write_to_pm"];
-      callBeDataObject.telegramUserData.photoUrl = tgWebAppDataObject["photo_url"] == undefined ? null : tgWebAppDataObject["photo_url"];
-      callBeDataObject.telegramUserData.isPremium = tgWebAppDataObject["is_premium"] == undefined ? null : tgWebAppDataObject["is_premium"];
-      callBeDataObject.telegramUserData.isBot = tgWebAppDataObject["is_bot"] == undefined ? null : tgWebAppDataObject["is_bot"];
-      callBeDataObject.telegramUserData.addedToAttachmentMenu = tgWebAppDataObject["added_to_attachment_menu"] == undefined ? null : tgWebAppDataObject["added_to_attachment_menu"];
+      callBeDataObject.telegramUserData.id = tgWebAppDataObject.user.id;
+      callBeDataObject.telegramUserData.firstName = tgWebAppDataObject.user.first_name;
+      callBeDataObject.telegramUserData.lastName = tgWebAppDataObject.user.last_name == undefined ? null : tgWebAppDataObject.user.last_name;
+      callBeDataObject.telegramUserData.userName = tgWebAppDataObject.user.username == undefined ? null : tgWebAppDataObject.user.username;
+      callBeDataObject.telegramUserData.languageCode = tgWebAppDataObject.user.language_code == undefined ? null : tgWebAppDataObject.user.language_code;
+      callBeDataObject.telegramUserData.allowsWriteToPm = tgWebAppDataObject.user.allows_write_to_pm == undefined ? null : tgWebAppDataObject.user.allows_write_to_pm;
+      callBeDataObject.telegramUserData.photoUrl = tgWebAppDataObject.user.photo_url == undefined ? null : tgWebAppDataObject.user.photo_url;
+      callBeDataObject.telegramUserData.isPremium = tgWebAppDataObject.user.is_premium == undefined ? null : tgWebAppDataObject.user.is_premium;
+      callBeDataObject.telegramUserData.isBot = tgWebAppDataObject.user.is_bot == undefined ? null : tgWebAppDataObject.user.is_bot;
+      callBeDataObject.telegramUserData.addedToAttachmentMenu = tgWebAppDataObject.user.added_to_attachment_menu == undefined ? null : tgWebAppDataObject.user.added_to_attachment_menu;
 
       // Update state with parsed parameters
       setParams(tgWebAppDataObject);
