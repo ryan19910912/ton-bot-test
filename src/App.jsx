@@ -24,6 +24,9 @@ function App() {
       const tgWebAppDataObject = {};
 
       const searchTgWebAppDataParams = new URLSearchParams(tgWebAppData);
+
+      console.log(searchTgWebAppDataParams);
+
       searchTgWebAppDataParams.forEach((value, key) => {
         try {
           // Attempt to parse JSON strings
