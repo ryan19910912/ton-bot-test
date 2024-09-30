@@ -91,11 +91,17 @@ function App() {
     };
   }, []);
 
-  const element = document.querySelector('.animated-close-icon');
-  console.log(element);
-  if (element) {
-    element.classList.add('state-back'); 
-  }
+  Telegram.WebApp.onReady(() => {
+    // 设置后退按钮可见
+    Telegram.WebApp.setBackButton({
+      isVisible: true, // 设置后退按钮为可见
+      text: "返回", // 按钮文本
+      onClick: () => {
+        console.log("后退按钮被点击");
+        Telegram.WebApp.close(); // 关闭应用或返回上一步
+      },
+    });
+  });
 
   return (
     <>
