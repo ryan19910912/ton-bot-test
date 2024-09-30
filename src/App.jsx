@@ -94,7 +94,7 @@ function App() {
 
   let backButton = window.Telegram.WebApp.BackButton;
   console.log(backButton);
-  backButton.show;
+  backButton.show();
 
   return (
     <>
