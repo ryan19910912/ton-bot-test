@@ -91,17 +91,22 @@ function App() {
     };
   }, []);
 
-  // 直接使用 window.Telegram.WebApp
-  window.Telegram.WebApp.onReady(() => {
-    // 设置后退按钮可见
-    window.Telegram.WebApp.setBackButton({
-      isVisible: true, // 设置后退按钮为可见
-      text: "返回", // 按钮文本
-      onClick: () => {
-        console.log("后退按钮被点击");
-        window.Telegram.WebApp.close(); // 关闭应用或返回上一步
-      },
-    });
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.onReady(() => {
+        // 設置後退按鈕可見
+        window.Telegram.WebApp.setBackButton({
+          isVisible: true, // 設置後退按鈕為可見
+          text: "返回", // 按鈕文本
+          onClick: () => {
+            console.log("後退按鈕被點擊");
+            window.Telegram.WebApp.close(); // 關閉應用或返回上一步
+          },
+        });
+      });
+    } else {
+      console.error("Telegram Web App SDK 未加載");
+    }
   });
 
   return (
