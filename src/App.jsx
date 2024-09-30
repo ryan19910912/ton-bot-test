@@ -80,11 +80,6 @@ function App() {
       //   setResponseData(result);
       // }
 
-      const element = document.querySelector('.animated-close-icon');
-      if (element) {
-        element.classList.add('state-back'); 
-      }
-
     };
 
     parseHashAndLogin();
@@ -95,6 +90,12 @@ function App() {
       window.removeEventListener('hashchange', parseHashAndLogin);
     };
   }, []);
+
+  const element = document.querySelector('.animated-close-icon');
+  console.log(element);
+  if (element) {
+    element.classList.add('state-back'); 
+  }
 
   return (
     <>
