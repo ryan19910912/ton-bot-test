@@ -91,23 +91,8 @@ function App() {
     };
   }, []);
 
-  document.addEventListener("DOMContentLoaded", () => {
-    if (window.Telegram && window.Telegram.WebApp) {
-      window.Telegram.WebApp.onReady(() => {
-        // 設置後退按鈕可見
-        window.Telegram.WebApp.setBackButton({
-          isVisible: true, // 設置後退按鈕為可見
-          text: "返回", // 按鈕文本
-          onClick: () => {
-            console.log("後退按鈕被點擊");
-            window.Telegram.WebApp.close(); // 關閉應用或返回上一步
-          },
-        });
-      });
-    } else {
-      console.error("Telegram Web App SDK 未加載");
-    }
-  });
+  let backButton = window.Telegram.WebApp.BackButton;
+  backButton.show;
 
   return (
     <>
