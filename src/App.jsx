@@ -95,6 +95,7 @@ function App() {
     if (window.Telegram && window.Telegram.WebApp) {
       window.Telegram.WebApp.onReady(() => {
         // 設置後退按鈕可見
+        console.error("設置後退按鈕可見");
         window.Telegram.WebApp.setBackButton({
           isVisible: true, // 設置後退按鈕為可見
           text: "返回", // 按鈕文本
