@@ -91,14 +91,15 @@ function App() {
     };
   }, []);
 
-  Telegram.WebApp.onReady(() => {
+  // 直接使用 window.Telegram.WebApp
+  window.Telegram.WebApp.onReady(() => {
     // 设置后退按钮可见
-    Telegram.WebApp.setBackButton({
+    window.Telegram.WebApp.setBackButton({
       isVisible: true, // 设置后退按钮为可见
       text: "返回", // 按钮文本
       onClick: () => {
         console.log("后退按钮被点击");
-        Telegram.WebApp.close(); // 关闭应用或返回上一步
+        window.Telegram.WebApp.close(); // 关闭应用或返回上一步
       },
     });
   });
