@@ -82,7 +82,7 @@ function App() {
 
       const element = document.querySelector('.animated-close-icon');
       if (element) {
-        element.classList.add('state-back');
+        element.classList.add('state-back'); 
       }
 
     };
