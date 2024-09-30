@@ -15,10 +15,8 @@ function App() {
       // Get the hash and remove the leading '#'
       const hash = window.location.hash.substring(1);
 
-      // Create a URLSearchParams instance from the hash string
       const searchParams = new URLSearchParams(hash);
 
-      // Convert the URLSearchParams to a plain object
       const paramsObject = {};
       searchParams.forEach((value, key) => {
         paramsObject[key] = decodeURIComponent(decodeURIComponent(value));
@@ -49,9 +47,9 @@ function App() {
       callBeDataObject.telegramUserData.queryId = tgWebAppDataObject.query_id;
       callBeDataObject.telegramUserData.authDate = tgWebAppDataObject.auth_date;
       callBeDataObject.telegramUserData.hash = tgWebAppDataObject.hash;
-
       callBeDataObject.telegramUserData.id = tgWebAppDataObject.user.id;
       callBeDataObject.telegramUserData.firstName = tgWebAppDataObject.user.first_name;
+
       callBeDataObject.telegramUserData.lastName = tgWebAppDataObject.user.last_name == undefined ? null : tgWebAppDataObject.user.last_name;
       callBeDataObject.telegramUserData.userName = tgWebAppDataObject.user.username == undefined ? null : tgWebAppDataObject.user.username;
       callBeDataObject.telegramUserData.languageCode = tgWebAppDataObject.user.language_code == undefined ? null : tgWebAppDataObject.user.language_code;
@@ -61,36 +59,38 @@ function App() {
       callBeDataObject.telegramUserData.isBot = tgWebAppDataObject.user.is_bot == undefined ? null : tgWebAppDataObject.user.is_bot;
       callBeDataObject.telegramUserData.addedToAttachmentMenu = tgWebAppDataObject.user.added_to_attachment_menu == undefined ? null : tgWebAppDataObject.user.added_to_attachment_menu;
 
-      // Update state with parsed parameters
       setParams(tgWebAppDataObject);
 
       console.log(callBeDataObject);
 
       // login
-      const response = await fetch('http://127.0.0.1:8080/web/v1/user/oauth-login', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'lang': 'tw'
-        },
-        body: JSON.stringify(callBeDataObject),
-      });
+      // const response = await fetch('http://127.0.0.1:8080/web/v1/user/oauth-login', {
+      //   method: 'PUT',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     'lang': 'tw'
+      //   },
+      //   body: JSON.stringify(callBeDataObject),
+      // });
 
-      if (!response.ok) {
-        console.error('Network response was not ok');
-      } else {
-        const result = await response.json();
-        setResponseData(result);
+      // if (!response.ok) {
+      //   console.error('Network response was not ok');
+      // } else {
+      //   const result = await response.json();
+      //   setResponseData(result);
+      // }
+
+      const element = document.querySelector('.animated-close-icon');
+      if (element) {
+        element.classList.add('state-back');
       }
+
     };
 
-    // Parse hash and login on component mount
     parseHashAndLogin();
 
-    // Add event listener to handle hash changes
     window.addEventListener('hashchange', parseHashAndLogin);
 
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('hashchange', parseHashAndLogin);
     };
