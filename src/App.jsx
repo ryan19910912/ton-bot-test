@@ -92,9 +92,10 @@ function App() {
   }, []);
 
 
-  // let backButton = window.Telegram.WebApp.BackButton;
-  // console.log(backButton);
-  // backButton.show();
+  let backButton = window.Telegram.WebApp.BackButton;
+  backButton.show();
+
+  window.Telegram.WebApp.expand();
 
   return (
     <>
